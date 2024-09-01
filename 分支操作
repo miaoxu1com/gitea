@@ -14,7 +14,6 @@ git branch
 # 解决 git branch 后不显示本地分支的解决方法执行一下步骤2-4重复步骤1就可以看到分支了
 # 总结: 必须使用 git init 命令创建仓库，执行 git add . 和 git commit（提交成功后）, 再使用 git branch 命令，才显示出本地分支
 # 本地分支和远程分支保持同步 git fetch --all
-# 解决 refusing to merge unrelated histories，重新执行1-4解决，网上解决方法git pull origin main –allow-unrelated-histories
 2.查看文件状态
 git status
 3.添加文件到
@@ -30,6 +29,8 @@ git remote add origin ssh://git@ssh.github.com:443/miaoxu1com/docker-alpine-pyth
 # 解决 fatal: no commit on branch 'main' yet
 # git status查看文件提交状态，然后在使用本地分支关联远程分支才行
 git branch --set-upstream-to=origin/main main
+# 出现这个的原因是因为创建github仓库时创建了readme文件，远程有的提交记录本地没有，然后本地创建了本地仓库，
+# 本地仓库先做了本地提交和远程的提交有差异，导致需要变基
 8.本地分支和远程分支的提交历史出现分叉进行变基
 git config pull.rebase true
 9.变基中出现冲突停止变基进行冲突解决，继续变基
